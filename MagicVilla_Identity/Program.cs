@@ -49,7 +49,7 @@ SeedDatabase();
 app.UseRouting();
 app.UseIdentityServer();
 app.UseAuthorization();
-app.MapRazorPages().RequireAuthorization();
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
