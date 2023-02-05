@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MagicVilla_VillaAPI.Controllers
 {
     [Route("api/VillaAPI")]
-    [ApiController]
+    //[ApiController]
     public class VillaAPIController : ControllerBase
     {
         [HttpGet]
@@ -16,8 +16,8 @@ namespace MagicVilla_VillaAPI.Controllers
         {
             return Ok(VillaStore.villaList);
         }
-        [HttpGet("{id:int}",Name ="GetVilla")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [HttpGet("{id:int}",Name ="GetVilla ")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
@@ -39,7 +39,9 @@ namespace MagicVilla_VillaAPI.Controllers
         }
 
         [HttpPost]
-
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<VillaDTO> CreatedVilla([FromBody]VillaDTO villaDTO) 
         {
             if (villaDTO == null) 
